@@ -13,7 +13,7 @@ ${SPARK_HOME}/bin/spark-submit \
 --master "local[4]" \
 --packages "mysql:mysql-connector-java:8.0.15" \
 target/scala-2.11/spark-app_2.11-0.1.jar \
-"/resources/" \
+"../resources/" \
 "root" \
 "mariadb" \
 "yanolja" \

@@ -41,6 +41,7 @@
                 <ul>
                     <li>데이터 서비스를 위한 API 서버 개발</li>
                     <li>데이터 저장소는 AWS 관리형 서비스내에서 제공하는 것 사용</li>
+                    <li>Mariadb 선택</li>
                 </ul></li>
         </ul>
 
@@ -78,8 +79,11 @@
 
         <pre><code class="bash">$ git clone https://github.com/rtfmplz/yanolja.git
             $ cd yanolja
-            $ ./scripts/start.sh run
         </code></pre>
+
+        <blockquote>
+            <p>이 후 실행되는 script 들은 yanolja 폴더에서 실행되는 것을 가정합니다.</p>
+        </blockquote>
 
         <h4>2. Bootstrap infra</h4>
 
@@ -91,18 +95,14 @@
         </code></pre>
 
         <ul>
-            <li>Access Database
+            <li>Access Adminer
 
                 <ul>
-                    <li>localhost: 8081</li>
+                    <li>localhost:8081</li>
                     <li>ID/PASSWD: root/mariadb</li>
                     <li>DATABASE: yanolja</li>
                 </ul></li>
         </ul>
-
-        <blockquote>
-            <p>이 후 실행되는 script 들은 yanolja 폴더에서 실행되는 것을 가정합니다.</p>
-        </blockquote>
 
         <h4>3. Run SparkApplication</h4>
 
@@ -159,7 +159,7 @@
                 </tr>
                 <tr>
                     <td>GET</td>
-                    <td>/business/hip/</td>
+                    <td>/business/hip</td>
                     <td>hip 한 가게의 전체 리스트를 제공</td>
                 </tr>
                 <tr>
@@ -169,7 +169,7 @@
                 </tr>
                 <tr>
                     <td>GET</td>
-                    <td>/business/reviews/</td>
+                    <td>/business/reviews</td>
                     <td>전체 리뷰 리스트를 제공</td>
                 </tr>
                 <tr>
@@ -185,7 +185,7 @@
         <pre><code>./scripts/api-server-test.sh
         </code></pre>
 
-        <h4>Dependencies</h4>
+        <h3>Dependencies</h3>
 
         <table>
             <colgroup>
@@ -252,11 +252,11 @@
         <p>데이터 소비 대상</p>
 
         <ul>
-            <li>내부 웹/앱 개발자에게 제공해서 지도에 뿌릴 수 있게 한다.</li>
-            <li>기획자, 마케터에게 제공해서 힙한 가게와의 이벤트를 기획할 수 있다.</li>
+            <li>내부 웹/앱 개발자에게 제공해서 고객에게 지도 서비스를 제공한다.</li>
+            <li>기획자, 마케터에게 제공해서 힙한 가게와의 이벤트를 기획 할 수 있다.</li>
         </ul>
 
-        <p>TroubleShooting</p>
+        <h4>TroubleShooting</h4>
 
         <ul>
             <li>조건들을 너무 박하게 줬더니 조인했을 때, 데이터가 너무 안나옴</li>

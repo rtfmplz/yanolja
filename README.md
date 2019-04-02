@@ -21,6 +21,7 @@
   * 부수 사항
     * 데이터 서비스를 위한 API 서버 개발
     * 데이터 저장소는 AWS 관리형 서비스내에서 제공하는 것 사용
+      *  Mariadb 선택
 
 
 ## Getting Started
@@ -44,8 +45,9 @@
 ```bash
 $ git clone https://github.com/rtfmplz/yanolja.git
 $ cd yanolja
-$ ./scripts/start.sh run
 ```
+
+> 이 후 실행되는 script 들은 yanolja 폴더에서 실행되는 것을 가정합니다.
 
 #### 2. Bootstrap infra
 
@@ -55,12 +57,11 @@ $ ./scripts/start.sh run
 ./scripts/init-infra.sh
 ```
 
-  * Access Database
-    * localhost: 8081
+  * Access Adminer
+    * localhost:8081
     * ID/PASSWD: root/mariadb
     * DATABASE: yanolja
 
-> 이 후 실행되는 script 들은 yanolja 폴더에서 실행되는 것을 가정합니다.
 
 #### 3. Run SparkApplication
 
@@ -88,9 +89,9 @@ $ ./scripts/start.sh run
 METHOD|URL|Des.|
 -|-|-
 GET|/|README|
-GET|/business/hip/|hip 한 가게의 전체 리스트를 제공|
+GET|/business/hip|hip 한 가게의 전체 리스트를 제공|
 GET|/business/hip/:name|가게의 이름을 받아 위치 정보와 review, tip 등을 제공|
-GET|/business/reviews/|전체 리뷰 리스트를 제공|
+GET|/business/reviews|전체 리뷰 리스트를 제공|
 GET|/business/tips|전체 팁 리스트를 제공|
 
 
@@ -100,7 +101,7 @@ GET|/business/tips|전체 팁 리스트를 제공|
 ./scripts/api-server-test.sh
 ```
 
-#### Dependencies
+### Dependencies
 
 Dependence|Version| |
 -|-|-
@@ -126,10 +127,10 @@ scalatestplus-play|3.0.0| test|
 
 데이터 소비 대상
 
-  * 내부 웹/앱 개발자에게 제공해서 지도에 뿌릴 수 있게 한다.
-  * 기획자, 마케터에게 제공해서 힙한 가게와의 이벤트를 기획할 수 있다.
+  * 내부 웹/앱 개발자에게 제공해서 고객에게 지도 서비스를 제공한다.
+  * 기획자, 마케터에게 제공해서 힙한 가게와의 이벤트를 기획 할 수 있다.
 
-TroubleShooting
+#### TroubleShooting
 
   * 조건들을 너무 박하게 줬더니 조인했을 때, 데이터가 너무 안나옴
   * groupby를 해서 review와 tip을 묶었더니 mysql에서 varchar(8000) 범위를 벗어남..
@@ -150,6 +151,7 @@ TroubleShooting
 ### TODO
 
   * [ ] Dynamo 로 업그레이드
+
 
 ### My Blog
 
